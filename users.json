@@ -1,0 +1,30 @@
+[
+    {
+        "userId" : 1,
+        "scoreList" : [],
+        "ability": {
+            "heart" : 3
+        }
+    }, 
+    {
+        "userId" : 2,
+        "scoreList" : [],
+        "ability": {
+            "heart" : 3
+        }
+    }, 
+    {
+        "userId" : 3,
+        "scoreList" : [],
+        "ability": {
+            "heart" : 3
+        }
+    }, 
+    {
+        "userId" : 4,
+        "scoreList" : [],
+        "ability": {
+            "heart" : 3
+        }
+    }
+]
