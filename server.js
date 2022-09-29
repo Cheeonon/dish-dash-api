@@ -10,6 +10,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const userRoutes = require('./routes/userRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const updateRoutes = require('./routes/updateRoutes');
 
 // middlewares
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use(cors());
 
 app.use('/users', userRoutes);
 app.use('/profiles', profileRoutes);
+app.use('/update', updateRoutes);
 
 
 app.listen(PORT, () => {

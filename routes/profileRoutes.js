@@ -28,7 +28,7 @@ const authorize = (req, res, next) => {
         next();
     });
 
-}
+};
 
 router.get("/profile", authorize, async (req, res) => {
     const userProfiles = await knex 
@@ -40,7 +40,7 @@ router.get("/profile", authorize, async (req, res) => {
     if(userProfiles.length == 0){
         try{
             await knex('profiles')
-            .insert({user_name: req.jwtDecoded.userName, hearts: 3, user_id: req.jwtDecoded.userId})
+            .insert({user_name: req.jwtDecoded.userName, hearts: 1, user_id: req.jwtDecoded.userId})
              
             const userProfiles = await knex 
             .select("*")
@@ -61,6 +61,33 @@ router.get("/profile", authorize, async (req, res) => {
     }
 
 
+});
+
+router.post("/scores", async (req, res) => {
+    // try{
+        await knex('scores')
+        .insert({user_id: req.body.user_id, userName: req.body.userName, score: req.body.score, time: req.body.time})
+    
+        res.json({message: "Successfully upload score"});
+    // } 
+    // catch{
+    //     res.status(500).json({message: "Failed to set user data in database"});
+    // }
+    
+});
+
+router.get("/topScores", async (req, res) => {
+    try{
+        const topScores = await knex('scores')
+        .select("*")
+        .from("SCORES")
+        .orderBy('score', 'desc')
+    
+        res.json({message: "Successfully upload score", topScores});
+    } 
+    catch{
+        res.status(500).json({message: "Failed to set user data in database"});
+    }
 })
 
 module.exports = router;
