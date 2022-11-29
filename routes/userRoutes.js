@@ -43,6 +43,9 @@ router.post("/login", async (req, res) => {
     const userNameUpper = userName.toUpperCase();
     const passwordUpper = password.toUpperCase();
     
+    console.log(userNameUpper);
+    console.log(passwordUpper);
+
     // Check if both name and password fields filled
     if(!userName || !password){
         return res.status(400).json({message: "Fill name and password fields"})
