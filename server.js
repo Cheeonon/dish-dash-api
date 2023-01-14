@@ -20,6 +20,9 @@ app.use('/users', userRoutes);
 app.use('/profiles', profileRoutes);
 app.use('/update', updateRoutes);
 
+app.get('/', ()=>{
+    res.send("Connected to the server.")
+});
 
 app.listen(PORT, () => {
     console.log("Server is running on port " + PORT);
