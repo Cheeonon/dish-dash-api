@@ -93,7 +93,7 @@ router.get("/topScores", async (req, res) => {
     try{
         const topScores = await knex('scores')
         .select("*")
-        .from("SCORESs")
+        .from("SCORES")
         .orderBy('time', 'desc')
     
         res.json({message: "Successfully upload score", topScores});
