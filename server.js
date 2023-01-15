@@ -20,8 +20,8 @@ app.use('/users', userRoutes);
 app.use('/profiles', profileRoutes);
 app.use('/update', updateRoutes);
 
-app.get('/', ()=>{
-    res.send("Connected to the server.")
+app.get('/', (req, res)=>{
+    res.status(200).json({message: "Successfully connected to the server."})
 });
 
 app.listen(PORT, () => {
