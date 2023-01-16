@@ -83,8 +83,8 @@ router.post("/scores", async (req, res) => {
 
         res.json({message: "Successfully upload score"});
     } 
-    catch{
-        res.status(500).json({message: "Failed to set user data in database"});
+    catch (err){
+        res.status(500).json({message: "Failed to set user data in database", err: {err}});
     }
     
 });
