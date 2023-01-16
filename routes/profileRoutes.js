@@ -73,7 +73,7 @@ router.post("/scores", async (req, res) => {
         const userCoins = userCoinsData[0].coins;
 
         // update score
-        await knex('scores')
+        await knex('SCORES')
         .insert({user_id: req.body.user_id, userName: req.body.userName, score: req.body.score, time: req.body.time});
 
         // update coins
