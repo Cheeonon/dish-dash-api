@@ -10,5 +10,6 @@ module.exports = {
       port: process.env.MYSQLPORT,
       url: process.env.MYSQL_URL,
       charset: "utf8"
+      
     }
   };
