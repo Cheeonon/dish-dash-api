@@ -10,11 +10,11 @@ router.post("/sign-up", async (req, res) => {
     const userNameUpper = userName.toUpperCase();
     const passwordUpper = password.toUpperCase();
 
+    console.log(userName)
     // Check if both name and password fields filled
     if(!userNameUpper || !passwordUpper){
         return res.status(400).json({message: "Fill name and password fields"})
     }
-
     const users = await knex
         .select("user_name")
         .from("users")
